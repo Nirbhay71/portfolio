@@ -196,12 +196,10 @@ button { font: inherit; color: inherit; }
 .hero__right {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  grid-template-rows: auto 1fr;
+  grid-template-columns: auto auto;
+  justify-content: end;
+  align-content: center;
   gap: 0 18px;
-  align-self: stretch;
-  max-height: calc(100svh - 184px);
-  min-height: 520px;
 }
 .hero__based {
   grid-column: 1 / -1;
@@ -218,9 +216,16 @@ button { font: inherit; color: inherit; }
 }
 .hero__based span { display: block; color: var(--muted); }
 .hero__based strong { font-size: 15px; }
-.hero__photo { overflow: hidden; min-height: 0; background: #d6d6d6; }
+/* Portrait frame sized from the viewport height so head, shoulders and chest stay in view */
+.hero__photo {
+  height: clamp(440px, calc(100svh - 230px), 860px);
+  aspect-ratio: 4 / 5;
+  max-width: 100%;
+  overflow: hidden;
+  background: #d6d6d6;
+}
 .hero__photo picture, .hero__photo img { width: 100%; height: 100%; }
-.hero__photo img { object-fit: cover; object-position: 50% 18%; transition: transform 1.2s var(--ease); }
+.hero__photo img { object-fit: cover; object-position: 50% 12%; transition: transform 1.2s var(--ease); }
 .hero__photo:hover img { transform: scale(1.02); }
 .hero__avail {
   writing-mode: vertical-rl;
@@ -616,8 +621,8 @@ button { font: inherit; color: inherit; }
   .nav.is-open .nav__toggle span:last-child { transform: translateY(-4px) rotate(-45deg); }
 
   .hero { grid-template-columns: 1fr; min-height: 0; padding-top: 100px; }
-  .hero__right { max-height: none; min-height: 0; }
-  .hero__photo { aspect-ratio: 4 / 5; }
+  .hero__right { grid-template-columns: minmax(0, 1fr) auto; justify-content: stretch; }
+  .hero__photo { width: 100%; height: auto; }
   .about { grid-template-columns: 1fr; }
   .cta { grid-template-columns: 1fr; padding-right: var(--gutter); }
   .cta__splash { opacity: .18; }
