@@ -39,7 +39,7 @@ const spy = new IntersectionObserver(
 );
 sections.forEach((s) => s && spy.observe(s));
 
-// Count-up for hero stats
+// Count-up for stats
 const countUp = (el) => {
   const target = +el.dataset.count;
   const decimals = +(el.dataset.decimals || 0);
@@ -67,3 +67,21 @@ const io = new IntersectionObserver(
   { threshold: 0.15 }
 );
 document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+// Project filters
+const filterButtons = [...document.querySelectorAll(".filters button")];
+const works = [...document.querySelectorAll(".work")];
+filterButtons.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    const f = btn.dataset.filter;
+    filterButtons.forEach((b) => {
+      b.classList.toggle("is-active", b === btn);
+      b.setAttribute("aria-pressed", b === btn);
+    });
+    works.forEach((w) => {
+      const show = f === "all" || w.dataset.cat.split(" ").includes(f);
+      w.classList.toggle("is-hidden", !show);
+      if (show) w.classList.add("is-in");
+    });
+  })
+);
