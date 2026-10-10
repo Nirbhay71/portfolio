@@ -396,16 +396,24 @@ ol, ul { list-style: none; }
 .cover--3 { background: radial-gradient(circle at 30% 80%, #f6ecdc, #e6cfa6 60%, #c9a46a); }
 .cover--4 { background: radial-gradient(circle at 70% 70%, #e2e9f3, #b5c6dd 60%, #7d95b8); }
 .cover--5 { background: radial-gradient(circle at 25% 75%, #f7e3dd, #e9b8a8 60%, #c97f68); }
-.work__cover--img { background: #1d1e1c; }
-.work__cover--img::after { display: none; }
-.work__cover--img img {
-  width: 100%;
-  height: 100%;
+.cover--6 { background: radial-gradient(circle at 30% 20%, #e6e6e3, #b9bab5 60%, #8a8c86); }
+/* Real screenshots sit on the gradient as a framed window */
+.work__cover--shot::after { display: none; }
+.work__cover--shot img {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  width: 84%;
+  height: auto;
+  max-height: 76%;
   object-fit: cover;
   object-position: left top;
+  border-radius: 6px;
+  box-shadow: 0 30px 60px -18px rgba(0, 0, 0, .35), 0 0 0 1px rgba(0, 0, 0, .06);
+  transform: translate(-50%, -50%);
   transition: transform .6s var(--ease);
 }
-.work__cover--img:hover img { transform: scale(1.03); }
+.work__cover--shot:hover img { transform: translate(-50%, calc(-50% - 8px)) scale(1.02); }
 .works__more {
   display: inline-flex;
   gap: 8px;
