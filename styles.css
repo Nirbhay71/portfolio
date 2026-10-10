@@ -147,12 +147,14 @@ button { font: inherit; color: inherit; }
 .hero {
   min-height: 100vh;
   min-height: 100svh;
-  padding: 120px var(--gutter) 64px;
+  padding: 96px var(--gutter) 0;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  gap: clamp(32px, 4vw, 72px);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 3vw, 56px);
+  align-items: end;
+  border-bottom: 1px solid var(--line);
 }
+.hero__left { align-self: center; padding: 24px 0 56px; }
 .hero__kicker {
   font-size: 13px;
   font-weight: 700;
@@ -193,44 +195,35 @@ button { font: inherit; color: inherit; }
 .hero__lead { max-width: 440px; font-size: 16px; line-height: 1.6; color: var(--ink-2); }
 .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
 
-.hero__right {
-  position: relative;
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-content: end;
-  align-content: center;
-  gap: 0 18px;
-}
+.hero__right { display: flex; flex-direction: column; min-width: 0; }
 .hero__based {
-  grid-column: 1 / -1;
-  justify-self: end;
-  margin-bottom: 16px;
+  align-self: flex-end;
+  margin-bottom: 4px;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .08em;
   text-transform: uppercase;
   line-height: 1.5;
-  text-align: left;
   padding-bottom: 10px;
   border-bottom: 2px solid var(--ink);
 }
 .hero__based span { display: block; color: var(--muted); }
 .hero__based strong { font-size: 15px; }
-/* Portrait frame sized from the viewport height so head, shoulders and chest stay in view */
+/* Cut-out portrait standing on the hero's bottom rule, like the reference */
+.hero__stage { position: relative; display: flex; align-items: flex-end; justify-content: flex-start; padding-left: clamp(0px, 3vw, 56px); }
 .hero__photo {
-  height: clamp(440px, calc(100svh - 230px), 860px);
-  aspect-ratio: 4 / 5;
-  max-width: 100%;
-  overflow: hidden;
-  background: #d6d6d6;
+  height: clamp(440px, calc(100svh - 170px), 940px);
+  aspect-ratio: 1000 / 1430;
+  max-width: calc(100% - 40px);
 }
 .hero__photo picture, .hero__photo img { width: 100%; height: 100%; }
-.hero__photo img { object-fit: cover; object-position: 50% 12%; transition: transform 1.2s var(--ease); }
-.hero__photo:hover img { transform: scale(1.02); }
+.hero__photo img { object-fit: contain; object-position: bottom center; }
 .hero__avail {
+  position: absolute;
+  right: 0;
+  bottom: 28px;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  align-self: end;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -294,7 +287,6 @@ button { font: inherit; color: inherit; }
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
   gap: clamp(40px, 7vw, 120px);
-  border-top: 1px solid var(--line);
 }
 .about__heading {
   margin: 22px 0 22px;
@@ -620,9 +612,10 @@ button { font: inherit; color: inherit; }
   .nav.is-open .nav__toggle span:first-child { transform: translateY(4px) rotate(45deg); }
   .nav.is-open .nav__toggle span:last-child { transform: translateY(-4px) rotate(-45deg); }
 
-  .hero { grid-template-columns: 1fr; min-height: 0; padding-top: 100px; }
-  .hero__right { grid-template-columns: minmax(0, 1fr) auto; justify-content: stretch; }
-  .hero__photo { width: 100%; height: auto; }
+  .hero { grid-template-columns: 1fr; min-height: 0; padding-top: 88px; }
+  .hero__left { padding-bottom: 8px; }
+  .hero__based { align-self: flex-start; }
+  .hero__photo { width: 100%; height: auto; max-width: calc(100% - 36px); margin-right: auto; }
   .about { grid-template-columns: 1fr; }
   .cta { grid-template-columns: 1fr; padding-right: var(--gutter); }
   .cta__splash { opacity: .18; }
