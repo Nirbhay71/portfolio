@@ -5,11 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nirbhay Shingala — Software Engineer</title>
   <meta name="description" content="Portfolio of Nirbhay Shingala, Computer Science student at Nirma University building real-time systems, AI products and developer tools. Open to internships and freelance work." />
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Fonts load without blocking the first paint (slow mobile networks were left on a blank page) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="preload" as="image" href="assets/me-cut.webp" type="image/webp" fetchpriority="high" />
   <link rel="stylesheet" href="styles.css" />
-  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
   <!-- NAV -->
@@ -130,7 +133,7 @@
 
         <article class="work reveal" data-cat="realtime web" style="--d:.06s">
           <a class="work__cover cover--red" href="https://relay-mesh.vercel.app" target="_blank" rel="noopener">
-            <img src="assets/relaymesh.webp" alt="RelayMesh logo screen" loading="lazy" width="960" height="600" />
+            <img src="assets/relaymesh.webp" alt="RelayMesh chat: contacts with online status and a conversation with read receipts" loading="lazy" width="1200" height="567" />
           </a>
           <div class="work__info">
             <p class="work__meta">Real-time · 2026</p>

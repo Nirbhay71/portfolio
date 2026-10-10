@@ -237,7 +237,7 @@ button { font: inherit; color: inherit; }
   :root:not([data-theme="light"]) .hero__photo img { filter: drop-shadow(0 0 22px rgba(255, 255, 255, .1)); }
 }
 .hero__photo picture, .hero__photo img { width: 100%; height: 100%; }
-.hero__photo img { object-fit: contain; object-position: bottom center; }
+.hero__photo img { object-fit: contain; object-position: bottom center; color: transparent; }
 .hero__avail {
   position: absolute;
   right: 0;

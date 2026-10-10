@@ -3,6 +3,17 @@ const toggle = document.querySelector(".nav__toggle");
 const links = [...document.querySelectorAll(".nav__links a")];
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+// Hero photo: if it fails on a flaky connection, retry once with the PNG instead of leaving a broken image
+const heroImg = document.querySelector(".hero__photo img");
+const retryHero = () => {
+  if (heroImg.dataset.retried) return;
+  heroImg.dataset.retried = "1";
+  heroImg.closest("picture").querySelector("source")?.remove();
+  heroImg.src = "assets/me-cut.png?retry=" + Date.now();
+};
+if (heroImg.complete && heroImg.naturalWidth === 0) retryHero();
+else heroImg.addEventListener("error", retryHero);
+
 document.querySelectorAll("[data-year]").forEach((el) => (el.textContent = new Date().getFullYear()));
 
 // Light / dark toggle (defaults to the OS setting, remembers the visitor's choice)
