@@ -1,0 +1,8 @@
+# Publish only the website; keep résumés, original photos and local tooling out
+/*
+!/.gitignore
+!/index.html
+!/styles.css
+!/script.js
+!/assets/
+!/README.md
