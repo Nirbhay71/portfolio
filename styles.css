@@ -287,11 +287,16 @@ ol, ul { list-style: none; }
   font-size: 13px;
   font-weight: 500;
 }
-.hero__discover { display: inline-flex; gap: 6px; }
+.hero__scroll,
+.hero__discover { display: inline-flex; gap: 6px; justify-self: start; transition: color .25s; }
+.hero__discover { justify-self: center; }
+.hero__scroll:hover,
+.hero__discover:hover { color: var(--accent); }
 .hero__discover .arrow { display: inline-block; animation: bob 1.8s ease-in-out infinite; }
 
 /* ---------- Sections ---------- */
 .section {
+  scroll-margin-top: 40px;
   padding: clamp(80px, 12vw, 160px) var(--gutter);
   border-top: 1px solid var(--line);
 }
