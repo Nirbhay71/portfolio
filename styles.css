@@ -412,16 +412,6 @@ button { font: inherit; color: inherit; }
   transition: transform .6s var(--ease);
 }
 .work__cover:hover img { transform: translateY(-6px) scale(1.02); }
-.cover__word {
-  font-family: var(--display);
-  font-size: clamp(44px, 5vw, 76px);
-  line-height: 1;
-  text-transform: uppercase;
-  color: #fff;
-  transition: transform .6s var(--ease);
-}
-.cover__word .dot { background: #0d0d0d; }
-.work__cover:hover .cover__word { transform: scale(1.04); }
 .work__info { padding-top: 18px; }
 .work__meta {
   font-size: 11px;
